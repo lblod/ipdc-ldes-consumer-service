@@ -1,8 +1,12 @@
 {
-  "name": "ipdc-ldes-consumer-service",
+  "name": "@lblod/ipdc-ldes-consumer-service",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lblod/ipdc-ldes-consumer-service.git"
+  },
   "scripts": {
     "start": "nodemon index.ts --ignore data",
     "test": "echo \"Error: no test specified\" && exit 1"
