@@ -10,3 +10,4 @@ You can configure the service with the following environment variables:
 - `LDES_ENDPOINT_VIEW`: the LDES endpoint to consume members from.
 - `CRON_PATTERN`: the CRON interval which should be used. (default: `'* 0 * * * *'`)
 - `JSON_ENDPOINT`: the JSON endpoint to send PUT requests to.
+- `DATA_FOLDER`: the folder in which the state is saved.
