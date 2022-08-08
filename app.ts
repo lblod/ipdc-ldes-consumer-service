@@ -22,9 +22,13 @@ const consumerJob = new CronJob(CRON_PATTERN, async () => {
       });
       consumer.listen(
         async (member, state) => {
-          console.log(member.id);
-          await processMember(member);
-          await saveState(state);
+          try {
+            console.log(member.id);
+            await processMember(member);
+            await saveState(state);
+          } catch (e) {
+            console.error(e);
+          }
         },
         () => (taskIsRunning = false)
       );
