@@ -18,6 +18,9 @@ export async function fetchState(): Promise<State | undefined> {
 }
 
 export async function saveState(state: State): Promise<void> {
+  if (!fs.existsSync(DATA_FOLDER)) {
+    fs.mkdirSync(DATA_FOLDER, { recursive: true });
+  }
   return fs.writeFileSync(
     path.join(DATA_FOLDER, 'state.json'),
     JSON.stringify(state)
