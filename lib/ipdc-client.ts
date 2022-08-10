@@ -10,6 +10,7 @@ export async function processMember(member: Member) {
       headers: { 'Content-type': 'application/ld+json' },
       body: JSON.stringify(doc),
     };
+    console.log(options);
     const response = await fetch(JSON_ENDPOINT, options);
     if (!response.ok) {
       throw new Error(`HTTP status code: ${response.status}`);
