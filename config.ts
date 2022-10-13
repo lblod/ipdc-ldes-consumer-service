@@ -4,3 +4,4 @@ export const DATA_FOLDER = process.env.DATA_FOLDER || './data';
 export const JSON_ENDPOINT =
   process.env.JSON_ENDPOINT ||
   'https://ipdc.ipdc.tni-vlaanderen.be/api/abb/instanties';
+export const LDES_ENDPOINT_HEADER_PREFIX = 'LDES_ENDPOINT_HEADER_'
