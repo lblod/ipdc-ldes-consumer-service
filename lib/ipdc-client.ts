@@ -1,13 +1,17 @@
 import { Member } from 'ldes-consumer';
 import * as jsonld from 'jsonld';
-import { JSON_ENDPOINT } from '../config';
+import { JSON_ENDPOINT, LDES_ENDPOINT_HEADER_PREFIX } from '../config';
 export async function processMember(member: Member) {
   try {
     const fromRdf = await jsonld.fromRDF(member.quads);
     const doc = await jsonld.expand(fromRdf);
+
+    const headers = extractHeadersFromEnv(LDES_ENDPOINT_HEADER_PREFIX) 
+    headers["Content-Type"] = "application/ld+json";
+
     const options: RequestInit = {
       method: 'PUT',
-      headers: { 'Content-type': 'application/ld+json' },
+      headers,
       body: JSON.stringify(doc),
     };
     console.log(options);
