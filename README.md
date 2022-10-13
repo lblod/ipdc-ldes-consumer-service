@@ -11,3 +11,4 @@ You can configure the service with the following environment variables:
 - `CRON_PATTERN`: the CRON interval which should be used. (default: `'* 0 * * * *'`)
 - `JSON_ENDPOINT`: the JSON endpoint to send PUT requests to.
 - `DATA_FOLDER`: the folder in which the state is saved.
+- `LDES_ENDPOINT_HEADER_<key>`: A header key-value combination which should be send as part of the headers to the LDES ENDPOINT. E.g. LDES_ENDPOINT_HEADER_X-API-KEY: <api_key>.
