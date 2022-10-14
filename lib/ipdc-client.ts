@@ -1,6 +1,8 @@
 import { Member } from 'ldes-consumer';
 import * as jsonld from 'jsonld';
 import { JSON_ENDPOINT, LDES_ENDPOINT_HEADER_PREFIX } from '../config';
+import { extractHeadersFromEnv } from '../utils/extractHeadersFromEnv';
+
 export async function processMember(member: Member) {
   try {
     const fromRdf = await jsonld.fromRDF(member.quads);
