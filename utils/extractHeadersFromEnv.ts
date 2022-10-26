@@ -1,5 +1,7 @@
-export function extractHeadersFromEnv(prefix) {
-  const headers = {};
+export function extractHeadersFromEnv(prefix: string) {
+  const headers: {
+    [key: string]: string;
+  } = {};
   for (const [key, value] of Object.entries(process.env)) {
     if (key.startsWith(prefix)) {
       const headerKey = key.split(prefix).pop();
