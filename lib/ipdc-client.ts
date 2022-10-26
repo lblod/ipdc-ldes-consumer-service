@@ -8,8 +8,8 @@ export async function processMember(member: Member) {
     const fromRdf = await jsonld.fromRDF(member.quads);
     const doc = await jsonld.expand(fromRdf);
 
-    const headers = extractHeadersFromEnv(LDES_ENDPOINT_HEADER_PREFIX) 
-    headers["Content-Type"] = "application/ld+json";
+    const headers = extractHeadersFromEnv(LDES_ENDPOINT_HEADER_PREFIX);
+    headers['Content-Type'] = 'application/ld+json';
 
     const options: RequestInit = {
       method: 'PUT',
