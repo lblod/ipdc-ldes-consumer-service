@@ -21,15 +21,17 @@ const consumerJob = new CronJob(CRON_PATTERN, async () => {
         initialState,
       });
       consumer.listen(
-        async (member, state) => {
+        async (member) => {
           try {
             await processMember(member);
-            await saveState(state);
           } catch (e) {
             console.error(e);
           }
         },
-        () => (taskIsRunning = false)
+        async (state) => {
+          await saveState(state);
+          taskIsRunning = false;
+        }
       );
     } else {
       throw new Error('No endpoint provided');
